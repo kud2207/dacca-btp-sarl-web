@@ -3,7 +3,7 @@ import NavDashboard from './nav';
 
 interface IHomeDashboardProps {
     Toggle : ()=> void
-}
+}  
 
 const HomeDashboard: React.FunctionComponent<IHomeDashboardProps> = ({Toggle}) => {
 
