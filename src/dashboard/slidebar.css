@@ -1,0 +1,63 @@
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    transition: width 0.3s ease;
+  }
+  .box-sc{
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .sidebar-icon {
+    width: 80px;
+  }
+  
+  .sidebar p,
+  .sidebar span {
+    display: inline-block;
+  }
+  
+  .sidebar-icon p,
+  .sidebar-icon span {
+    display: none;
+  }
+  
+  /* Hover styles for the sidebar */
+  .hoverSlider {
+    color: #273746;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .hoverSlider:hover {
+    background-color: #1abc9c;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive adjustments for small screens */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 80px;
+    }
+  
+    .sidebar p,
+    .sidebar span {
+      display: none;
+    }
+  
+    .sidebar .list-group {
+      display: flex;
+    }
+  
+    .hoverSlider:hover {
+      width: 5vh;
+      border-radius: 10px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+  }
+  
