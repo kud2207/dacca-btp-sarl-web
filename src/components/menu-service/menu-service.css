@@ -1,0 +1,12 @@
+.liste-menu{
+    color: white;
+    font-weight: bold;
+}
+
+.liste-menu:hover{
+    color: white;
+   
+}
+.liste-menu:active{
+    color: white;
+}
