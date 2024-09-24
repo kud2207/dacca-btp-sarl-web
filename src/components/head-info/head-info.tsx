@@ -3,10 +3,13 @@ import LogoDacca from "./logo-dacca";
 import ButtonHover from "../button/button-hover";
 import CalendarModal from "./calendar";
 import { normal } from "../../constants/color";
+import LoginAdm from "../../dashboard/auth/login/login-admin";
+import { useModalShowLogin } from "../../store/auth-store-admin";
 
 interface IHeadInfoProps {}
 
 const HeadInfo: React.FunctionComponent<IHeadInfoProps> = () => {
+  const {handleShow}= useModalShowLogin()
   return (
     <div className="mobile:hidden  flex md:justify-between">
       <div>
@@ -39,7 +42,11 @@ const HeadInfo: React.FunctionComponent<IHeadInfoProps> = () => {
           </div>
         </div>
         <div>
-          <ButtonHover nameButton="CONNEXION" />
+          <ButtonHover 
+          nameButton="CONNEXION"
+          onClick={handleShow}
+          />
+          <LoginAdm />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './slidebar.css';
-import LogoDacca from '../components/head-info/logo-dacca';
+import LogoDacca from '../../components/head-info/logo-dacca';
 
 interface ISlidebarProps {}
 
@@ -8,7 +8,7 @@ const Slidebar: React.FunctionComponent<ISlidebarProps> = () => {
   return (
     <div className="sidebar p-2 ">
       <div className="brand-section mb-4 flex gap-2">
-        <LogoDacca IsVisibleDacca={false} classNameImg="w-10" />
+        <LogoDacca IsVisibleDacca={false} classNameImg="w-8" />
         <span className="brand-name fs-5">DACCA BTP SARL</span>
       </div>
       <div className="list-group list-group-flush">

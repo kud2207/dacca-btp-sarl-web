@@ -57,7 +57,7 @@ const ServiceDacca: React.FunctionComponent<IServiceDaccaProps> = () => {
 
   return (
     <div className="mt-2 mb-2 flex justify-center items-center">
-      <Card style={{ width: "19rem" }}>
+      <Card style={{ width: "19rem" , border: 'none'}}>
         <Card.Img variant="top" src={img} />
         <Card.Body>
           <Card.Title>Card Title</Card.Title>

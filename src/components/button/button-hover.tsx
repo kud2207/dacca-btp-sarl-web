@@ -1,4 +1,3 @@
-import { normal } from "../../constants/color";
 import Button from "react-bootstrap/Button";
 
 interface ButtonHoverProps
