@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useEffect } from "react";
 import { apiAdm } from "../../services/api";
+import { DataAdmin } from "../../types/type";
 
 interface INavDashboardProps {
   Toggle: () => void;
@@ -9,6 +9,7 @@ interface INavDashboardProps {
 const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
   Toggle,
 }) => {
+  const [dataAdmin , setDataAdmin]= React.useState<DataAdmin>()
 
   const dataAdminToken = async () => {
     const token = localStorage.getItem("token");
@@ -24,7 +25,8 @@ const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("Données de l'admin:", response.data?.accessToken);
+
+      setDataAdmin(response.data)
     } catch (error) {
       console.error(
         "Erreur lors de la récupération des données de l'admin:",
@@ -33,9 +35,8 @@ const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
     }
   };
 
-  useEffect(() => {
     dataAdminToken();
-  }, [dataAdminToken()]); 
+
 
   return (
     <div className="m-2">
@@ -46,7 +47,7 @@ const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
         ></i>
         <div className="flex gap-2 justify-center items-center">
           <i className="bi bi-person-circle fs-4"></i>
-          <span>kageu ulrich</span>
+          <span>{dataAdmin?.gmail}</span>
         </div>
       </nav>
     </div>
