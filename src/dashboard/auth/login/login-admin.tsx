@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 interface ILoginAdmProps {}
 
 const LoginAdm: React.FunctionComponent<ILoginAdmProps> = () => {
-  const { show, handleClose } = useModalShowLogin();
+  const { show, handleClose, setTokenAdmin } = useModalShowLogin();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("ulrichkageu@gmail.com");
@@ -53,7 +53,9 @@ const LoginAdm: React.FunctionComponent<ILoginAdmProps> = () => {
           password: password,
         });
         
-        localStorage.setItem('token', response.data?.accessToken) //stoke le token
+        //stoke au token dans le store
+        const accessToken = response.data?.accessToken 
+        setTokenAdmin(accessToken)
 
         handleClose();
         navigate("/dashboard");
@@ -110,7 +112,6 @@ const LoginAdm: React.FunctionComponent<ILoginAdmProps> = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            {/* Affichage des erreurs de l'API si elles existent */}
             {errors.apiError && (
               <div className="text-danger mb-3">{errors.apiError}</div>
             )}

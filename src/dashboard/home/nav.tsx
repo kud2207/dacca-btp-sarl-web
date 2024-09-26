@@ -1,6 +1,5 @@
 import * as React from "react";
-import { apiAdm } from "../../services/api";
-import { DataAdmin } from "../../types/type";
+import { useModalShowLogin } from "../../store/auth-store-admin";
 
 interface INavDashboardProps {
   Toggle: () => void;
@@ -9,34 +8,11 @@ interface INavDashboardProps {
 const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
   Toggle,
 }) => {
-  const [dataAdmin , setDataAdmin]= React.useState<DataAdmin>()
+  const {  dataAdmim , dataAdminToken} = useModalShowLogin();
 
-  const dataAdminToken = async () => {
-    const token = localStorage.getItem("token");
 
-    if (!token) {
-      console.error("Aucun token trouvé dans le localStorage");
-      return;
-    }
 
-    try {
-      const response = await apiAdm.get("/admin/dataAdm", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      setDataAdmin(response.data)
-    } catch (error) {
-      console.error(
-        "Erreur lors de la récupération des données de l'admin:",
-        error
-      );
-    }
-  };
-
-    dataAdminToken();
-
+  dataAdminToken();
 
   return (
     <div className="m-2">
@@ -47,7 +23,7 @@ const NavDashboard: React.FunctionComponent<INavDashboardProps> = ({
         ></i>
         <div className="flex gap-2 justify-center items-center">
           <i className="bi bi-person-circle fs-4"></i>
-          <span>{dataAdmin?.gmail}</span>
+          <span>{dataAdmim?.gmail}</span>
         </div>
       </nav>
     </div>

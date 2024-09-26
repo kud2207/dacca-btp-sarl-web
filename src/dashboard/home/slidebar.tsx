@@ -3,15 +3,16 @@ import "./slidebar.css";
 import LogoDacca from "../../components/head-info/logo-dacca";
 import { useNavigate } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
+import { useModalShowLogin } from "../../store/auth-store-admin";
 
 interface ISlidebarProps {}
 
 const Slidebar: React.FunctionComponent<ISlidebarProps> = () => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = React.useState(false);
-
+const {setDataAdmin}=useModalShowLogin()
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    setDataAdmin(null)
     navigate("/");
   };
 
